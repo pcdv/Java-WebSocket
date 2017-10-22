@@ -108,7 +108,7 @@ public abstract class AbstractWebSocket extends WebSocketAdapter {
         if (WebSocketImpl.DEBUG)
             System.out.println("Connection lost timer started");
         cancelConnectionLostTimer();
-        connectionLostTimer = new Timer();
+		connectionLostTimer = new Timer(getClass().getSimpleName()+".connectionLostTimer");
         connectionLostTimerTask = new TimerTask() {
 
 			/**

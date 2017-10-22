@@ -229,7 +229,7 @@ public abstract class WebSocketClient extends AbstractWebSocket implements Runna
 	}
 
 	public void run() {
-
+		Thread.currentThread().setName( getClass().getSimpleName());
 		try {
 			boolean isNewSocket = false;
 
@@ -456,7 +456,7 @@ public abstract class WebSocketClient extends AbstractWebSocket implements Runna
 	private class WebsocketWriteThread implements Runnable {
 		@Override
 		public void run() {
-			Thread.currentThread().setName( "WebsocketWriteThread" );
+			Thread.currentThread().setName( WebSocketClient.this.getClass().getSimpleName() + ".WebsocketWriteThread" );
 			try {
 				try {
 					while( !Thread.interrupted() ) {
