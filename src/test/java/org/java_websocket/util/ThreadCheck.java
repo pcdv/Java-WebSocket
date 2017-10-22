@@ -33,7 +33,7 @@ public class ThreadCheck extends ExternalResource {
 			if( prev == null ) {
 				zombies++;
 				if( testOnly )
-					continue;
+					return true;
 
 				StringBuilder b = new StringBuilder( 4096 );
 				appendStack( t, b.append( "\n" ).append( t.getName() ) );
